@@ -4,17 +4,19 @@ import seedu.addressbook.data.exception.IllegalValueException;
 
 /**
  * Represents a Person's address in the address book.
- * Guarantees: immutable; is valid as declared in {@link #isValidAddress(String)}
+ * Guarantees: immutable;
  */
 public class Address {
 
     public static final String EXAMPLE = "123, some street, #12-345, 123456";
-    public static final String MESSAGE_ADDRESS_CONSTRAINTS = "Address should be entered in the following format:\n"
-                                                            + " a/BLOCK, STREET, UNIT, POSTAL_CODE\n"
-                                                                + "e.g. a/123, Clementi Ave 3, #12-34, 231534" ;
-    public static final String ADDRESS_VALIDATION_REGEX = "\\d{1,3}[a-zA-Z0-9 ]*, *[a-zA-Z0-9]+[a-zA-Z0-9 ]+(?!\\ ,), *#\\d+-\\d+, *\\d{6}";
 
     public final String value;
+    
+    private Block block;
+    private Street street;
+    private Unit unit;
+    private PostalCode postalCode;
+    
     private boolean isPrivate;
 
     /**
@@ -23,20 +25,23 @@ public class Address {
      * @throws IllegalValueException if given address string is invalid.
      */
     public Address(String address, boolean isPrivate) throws IllegalValueException {
-        String trimmedAddress = address.trim();
+        String[] splitAddress = address.split(",");
+        
+        this.block = new Block(splitAddress[0].trim());
+        this.street = new Street(splitAddress[1].trim());
+        this.unit = new Unit(splitAddress[2].trim());
+        this.postalCode = new PostalCode(splitAddress[3].trim());
+        
+        String formatAddress = String.format("%s, %s, %s, %s", block.value, street.value, unit.value, postalCode.value);
+        
         this.isPrivate = isPrivate;
-        if (!isValidAddress(trimmedAddress)) {
-            throw new IllegalValueException(MESSAGE_ADDRESS_CONSTRAINTS);
-        }
-        this.value = trimmedAddress;
+
+        this.value = formatAddress;
     }
 
     /**
      * Returns true if a given string is a valid person address.
      */
-    public static boolean isValidAddress(String test) {
-        return test.matches(ADDRESS_VALIDATION_REGEX);
-    }
 
     @Override
     public String toString() {
