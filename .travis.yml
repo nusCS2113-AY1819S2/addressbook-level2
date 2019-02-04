@@ -16,7 +16,7 @@ deploy:
   provider: script
   script: ./config/travis/deploy_github_pages.sh
   on:
-    branch: master
+    all_branches: true
 
 addons:
   apt:
