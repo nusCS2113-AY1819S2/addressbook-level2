@@ -8,7 +8,7 @@ public class Block {
             + "appended with an optional character [A-Z].\n"
             + "Example: "
             + EXAMPLE;
-    public static final String BLOCK_VALIDATION_REGEX = "[a-zA-Z0-9]+[a-zA-Z0-9 ]*";
+    public static final String BLOCK_VALIDATION_REGEX = "[0-9]+[a-zA-Z0-9 ]*";
     
     public final String value;
     

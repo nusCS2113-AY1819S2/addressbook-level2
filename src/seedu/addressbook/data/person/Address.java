@@ -4,12 +4,16 @@ import seedu.addressbook.data.exception.IllegalValueException;
 
 /**
  * Represents a Person's address in the address book.
- * Guarantees: immutable;
+ * Guarantees: immutable; 
  */
 public class Address {
 
     public static final String EXAMPLE = "123, some street, #12-345, 123456";
-
+    public static final String MESSAGE_ADDRESS_CONSTRAINTS = "Address has incorrect no. of entry fields.\n"
+            + "Address should have 4 entry fields: " 
+            + "a/BLOCK, STREET, UNIT, POSTAL_CODE\n"
+            + "Example: "
+            + EXAMPLE;
     public final String value;
     
     private Block block;
@@ -26,6 +30,10 @@ public class Address {
      */
     public Address(String address, boolean isPrivate) throws IllegalValueException {
         String[] splitAddress = address.split(",");
+        
+        if (splitAddress.length != 4) {
+            throw new IllegalValueException(MESSAGE_ADDRESS_CONSTRAINTS);
+        }
         
         this.block = new Block(splitAddress[0].trim());
         this.street = new Street(splitAddress[1].trim());

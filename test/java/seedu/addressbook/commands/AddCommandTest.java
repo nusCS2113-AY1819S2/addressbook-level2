@@ -58,7 +58,11 @@ public class AddCommandTest {
 
     @Test
     public void addCommand_invalidAddress_throwsException() {
-        final String[] invalidAddresses = { "", " " };
+        final String[] invalidAddresses = { "", " ", "invalid address", "No Block Road, #12-345, 123456", "123, #12-345, 123456",
+                                            "123, No Unit Road, 937829", "999, No Postal Code Road, #02-345",
+                                            "One, Block Word Road, #12-345, 123456", "123, No Hash Tag Road, 12-345, 123456",
+                                            "1, No Hyphen Road, #12 345, 123456", "123, Less Postal Code Road, #12-345, 12345",
+                                            "123, More Postal Code Road, #12-345, 1234567", "1A No Comma Road #1-23 123456" };
         for (String address : invalidAddresses) {
             assertConstructingInvalidAddCmdThrowsException(Name.EXAMPLE, Phone.EXAMPLE, true, Email.EXAMPLE,
                     true, address, true, EMPTY_STRING_SET);
