@@ -16,6 +16,9 @@ public class Person implements ReadOnlyPerson {
     private Phone phone;
     private Email email;
     private Address address;
+    
+    private int sequenceNumber;
+    private static int nextSequenceNumber = 1;
 
     private final Set<Tag> tags = new HashSet<>();
 
@@ -28,6 +31,7 @@ public class Person implements ReadOnlyPerson {
         this.email = email;
         this.address = address;
         this.tags.addAll(tags);
+        this.sequenceNumber = nextSequenceNumber++;
     }
 
     /**
@@ -61,13 +65,20 @@ public class Person implements ReadOnlyPerson {
     public Set<Tag> getTags() {
         return new HashSet<>(tags);
     }
-
+    
+    public int getSequenceNumber() {
+        return sequenceNumber;
+    }
     /**
      * Replaces this person's tags with the tags in the argument tag set.
      */
     public void setTags(Set<Tag> replacement) {
         tags.clear();
         tags.addAll(replacement);
+    }
+    
+    public void setNextSequenceNumber(int num) {
+        nextSequenceNumber = num;
     }
 
     @Override

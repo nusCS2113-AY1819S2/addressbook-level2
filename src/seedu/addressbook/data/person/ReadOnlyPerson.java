@@ -14,7 +14,7 @@ public interface ReadOnlyPerson {
     Phone getPhone();
     Email getEmail();
     Address getAddress();
-
+    int getSequenceNumber();
     /**
      * Returns a new TagSet that is a deep copy of the internal TagSet,
      * changes on the returned set will not affect the person's internal tags.
