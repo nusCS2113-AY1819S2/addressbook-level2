@@ -99,9 +99,8 @@ public class UniquePersonList implements Iterable<Person> {
     /**
      * Sorts the current list in alphabetical order of names.
      */
-    public boolean sort () {
+    public void sort () {
         Collections.sort(internalList, Person.compareByName);
-        return true;
     }
 
     /**
