@@ -60,6 +60,11 @@ public class AddressBook {
     public void clear() {
         allPersons.clear();
     }
+    
+    /**
+     * Sorts all persons in the address book in ascending order.
+     */
+    public void sort() { allPersons.sort(); }
 
     /**
      * Returns a new UniquePersonList of all persons in the address book at the time of the call.
