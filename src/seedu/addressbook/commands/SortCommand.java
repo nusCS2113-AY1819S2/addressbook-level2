@@ -2,7 +2,7 @@ package seedu.addressbook.commands;
 
 
 /**
- * Lists all persons in the address book to the user.
+ * Sorts all people in the address book by name in ascending order.
  */
 public class SortCommand extends Command {
 
