@@ -233,6 +233,25 @@
 || 
 || 2 persons listed!
 || ===================================================
+|| Enter command: || [Command entered:  findp]
+|| Invalid command format!
+|| findp: Finds all persons whose phone number matches the specified phone number and displays them as a list with index numbers.
+|| Parameters: PHONE NUMBER...
+|| Example: findp 12345678
+|| ===================================================
+|| Enter command: || [Command entered:  findp 00000000]
+||
+|| 0 person listed!
+|| ===================================================
+|| Enter command: || [Command entered:  findp stdtda]
+||
+|| 0 person listed!
+|| ===================================================
+|| Enter command: || [Command entered:  findp 12345678]
+||  1. Britton Phone: 12345678 Email: jin@gmail.com Address: 111 Tags: [friends]
+||
+|| 1 persons listed!
+|| ===================================================
 || Enter command: || [Command entered:  delete]
 || Invalid command format! 
 || delete: Deletes the person identified by the index number used in the last person listing.

@@ -107,6 +107,17 @@
   find Charlie Betsy
 
 ##########################################################
+# test findp person command
+##########################################################
+
+  # should consider no phone number as invalid format
+  findp
+  # should match all the person with valid input number
+  findp 111111
+  # should match none if none has the given number
+  findp 000000
+
+##########################################################
 # test delete person command
 ##########################################################
 
