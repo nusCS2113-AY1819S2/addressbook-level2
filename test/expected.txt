@@ -27,6 +27,8 @@
 || Example: viewall 1
 || help: Shows program usage instructions.
 || Example: help
+|| goodbye: prints goodbye message.
+|| Example: goodbye
 || exit: Exits the program.
 || Example: exit
 || ===================================================

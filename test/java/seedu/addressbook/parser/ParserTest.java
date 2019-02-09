@@ -12,6 +12,7 @@ import java.util.Set;
 import org.junit.Before;
 import org.junit.Test;
 
+import seedu.addressbook.commands.GoodbyeCommand;
 import seedu.addressbook.commands.AddCommand;
 import seedu.addressbook.commands.ClearCommand;
 import seedu.addressbook.commands.Command;
@@ -62,6 +63,12 @@ public class ParserTest {
     /*
      * Tests for 0-argument commands =======================================================================
      */
+
+    @Test
+    public void parse_goodbyeCommand_parsedCorrectly() {
+        final String input = "goodbye";
+        parseAndAssertCommandType(input, GoodbyeCommand.class);
+    }
 
     @Test
     public void parse_helpCommand_parsedCorrectly() {
