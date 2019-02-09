@@ -111,6 +111,26 @@ Deletes the 2nd person in the address book.
 `delete 1` +
 Deletes the 1st person in the results of the `find` command.
 
+== View all details of a person : `edit`
+
+Displays all details (including private details) of the specified person. +
+Format: `edit INDEX NAME [p]p/PHONE_NUMBER [p]e/EMAIL [p]a/ADDRESS [t/TAG]...`
+
+****
+Edits all details of the person at the specified `INDEX`.
+The index refers to the index number shown in the most recent listing.
+****
+
+Examples:
+
+* `list` +
+`edit 2 John p/98765432 e/test@maybe.com a/Definitely A Real Place t/Good` +
+Edits the 2nd person in the address book to match the new parameters.
+
+* `find Betsy` +
+`edit 1 John p/98765432 e/test@maybe.com a/Definitely A Real Place t/Good` +
+Edits the 1st person in the results of the `find` command to match the new parameters.
+
 == View non-private details of a person : `view`
 
 Displays the non-private details of the specified person. +

@@ -141,6 +141,27 @@
   list
 
 ##########################################################
+# test edit command
+##########################################################
+
+# last active view: [1] betsy [2] dickson
+
+  # should catch invalid args and formatting
+  edit
+  edit wrong args
+  edit 0
+  edit 1
+  edit 1 Valid Name p/12345 valid@email.butNoPrefix a/123 Tester Street t/Test
+  edit 1 12345 e/valid@email.butPhonePrefixMissing a/123 Tester Street t/Test
+
+  #should catch invalid index
+  edit 5 testing tester p/987654321 e/abc@xyz a/test address t/test
+
+  # edits correct person
+  edit 1 testing tester p/987654321 e/abc@xyz a/test address t/test
+  list
+
+##########################################################
 # test clear command
 ##########################################################
 
