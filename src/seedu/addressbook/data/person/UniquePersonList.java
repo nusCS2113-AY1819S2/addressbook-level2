@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
@@ -81,6 +82,19 @@ public class UniquePersonList implements Iterable<Person> {
         return Collections.unmodifiableList(internalList);
     }
 
+    /*
+     * Sort the list based on their name.
+     * "DEF,ghh,ZXC,abc" will become "abc,DEF,ghh,ZXC"
+     */
+
+    public void sort(){
+        Comparator<Person> personComparator = (personA, personB) -> {
+            Name personAName = personA.getName();
+            Name personBName = personB.getName();
+            return personAName.compareTo(personBName);
+        };
+        Collections.sort(internalList,personComparator);
+    }
 
     /**
      * Checks if the list contains an equivalent person as the given argument.
