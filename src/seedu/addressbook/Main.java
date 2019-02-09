@@ -96,6 +96,7 @@ public class Main {
         final Optional<List<? extends ReadOnlyPerson>> personList = result.getRelevantPersons();
         if (personList.isPresent()) {
             lastShownList = personList.get();
+
         }
     }
 
