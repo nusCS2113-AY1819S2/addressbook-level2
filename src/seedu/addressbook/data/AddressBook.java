@@ -67,7 +67,12 @@ public class AddressBook {
     public UniquePersonList getAllPersons() {
         return new UniquePersonList(allPersons);
     }
-
+    
+    public UniquePersonList sortAllPersons() {
+        allPersons.sort();
+        return new UniquePersonList(allPersons);
+    }
+    
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object

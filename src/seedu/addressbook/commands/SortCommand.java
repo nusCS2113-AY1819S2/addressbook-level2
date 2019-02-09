@@ -1,9 +1,13 @@
 package seedu.addressbook.commands;
 
+import seedu.addressbook.common.Messages;
 import seedu.addressbook.data.person.ReadOnlyPerson;
 
 import java.util.List;
 
+/**
+ * Sorts the current list by name and displays the updated sorted list
+ */
 public class SortCommand extends Command {
     public static final String COMMAND_WORD = "sort";
 
@@ -11,11 +15,10 @@ public class SortCommand extends Command {
             + ": Displays all persons in the address book as a list with index numbers, sorted by name.\n"
             + "Example: " + COMMAND_WORD;
 
-
     @Override
     public CommandResult execute() {
-        List<ReadOnlyPerson> allPersons = addressBook.getAllPersons().immutableListView();
-        return new CommandResult(getMessageForPersonListShownSummary(allPersons), allPersons);
+        List<ReadOnlyPerson> allPersons = addressBook.sortAllPersons().immutableListView();
+        return new CommandResult(getMessageForPersonListShownSummary(allPersons, "sorted"), allPersons);
     }
 
 }

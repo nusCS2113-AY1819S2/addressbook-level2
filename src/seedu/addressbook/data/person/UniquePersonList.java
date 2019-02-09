@@ -97,6 +97,14 @@ public class UniquePersonList implements Iterable<Person> {
     }
 
     /**
+     * Sorts the current list in alphabetical order of names.
+     */
+    public boolean sort () {
+        Collections.sort(internalList, Person.compareByName);
+        return true;
+    }
+
+    /**
      * Adds a person to the list.
      *
      * @throws DuplicatePersonException if the person to add is a duplicate of an existing person in the list.
