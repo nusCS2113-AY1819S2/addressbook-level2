@@ -290,6 +290,11 @@
 || 
 || 2 persons listed!
 || ===================================================
+|| Enter command: || [Command entered:  junk]
+|| junk: THIS IS A LINE OF UNNECESSARY JUNK. YOU JUST WASTED 1 MIN OF YOUR LIFE =)
+|| Example: junk
+|| 
+|| ===================================================
 || Enter command: || [Command entered:  clear]
 || Address book has been cleared!
 || ===================================================

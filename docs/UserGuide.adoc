@@ -47,6 +47,14 @@ Format: `help`
 Help is also shown if you enter an incorrect command e.g. `abcd`
 ====
 
+== Adding Junk : `junk`
+
+Format: `junk`
+
+[TIP]
+====
+A single line of junk is printed onto your screen output =D
+====
 == Adding a person: `add`
 
 Adds a person to the address book. +
