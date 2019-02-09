@@ -127,7 +127,7 @@ public class AddressBookTest {
     public void sort() throws Exception {
         UniquePersonList unsortedPersons = defaultAddressBook.getAllPersons();
         UniquePersonList personsToCheck = new UniquePersonList(aliceBetsy, bobChaplin, charlieDouglas, davidElliot);
-        unsortedPersons.sort();();
+        unsortedPersons.sort();
         assertTrue(isIdentical(unsortedPersons, personsToCheck));
     }
     
