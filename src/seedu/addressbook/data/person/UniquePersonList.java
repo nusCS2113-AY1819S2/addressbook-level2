@@ -6,6 +6,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Comparator;
 
 import seedu.addressbook.common.Utils;
 import seedu.addressbook.data.exception.DuplicateDataException;
@@ -19,6 +20,7 @@ import seedu.addressbook.data.exception.DuplicateDataException;
  * @see Utils#elementsAreUnique(Collection)
  */
 public class UniquePersonList implements Iterable<Person> {
+
 
     /**
      * Signals that an operation would have violated the 'no duplicates' property of the list.
@@ -129,6 +131,16 @@ public class UniquePersonList implements Iterable<Person> {
         internalList.clear();
     }
 
+    /**
+     * Sort all persons in list by ascending alphabetical order.
+     */
+
+    public void sort(){
+        Comparator<Person> CustomPersonCompare = Comparator.comparing(Person::getName);
+        Collections.sort(internalList,CustomPersonCompare);
+    }
+
+
     @Override
     public Iterator<Person> iterator() {
         return internalList.iterator();
@@ -140,4 +152,6 @@ public class UniquePersonList implements Iterable<Person> {
                 || (other instanceof UniquePersonList // instanceof handles nulls
                         && this.internalList.equals(((UniquePersonList) other).internalList));
     }
+
+
 }

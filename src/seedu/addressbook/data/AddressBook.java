@@ -9,6 +9,10 @@ import seedu.addressbook.data.person.UniquePersonList.PersonNotFoundException;
 /**
  * Represents the entire address book. Contains the data of the address book.
  */
+
+
+
+
 public class AddressBook {
 
     private final UniquePersonList allPersons;
@@ -57,9 +61,12 @@ public class AddressBook {
     /**
      * Clears all persons and tags from the address book.
      */
-    public void clear() {
-        allPersons.clear();
-    }
+    public void clear() {allPersons.clear();}
+
+    /**
+     * Sort all persons by ascending alphabetical order from address book.
+     */
+    public void sort() {allPersons.sort();}
 
     /**
      * Returns a new UniquePersonList of all persons in the address book at the time of the call.
