@@ -38,6 +38,7 @@ public class AddressBookTest {
 
     private AddressBook defaultAddressBook;
     private AddressBook emptyAddressBook;
+    private AddressBook unsortedAddressBook;
 
 
     @Before
@@ -73,6 +74,7 @@ public class AddressBookTest {
 
         emptyAddressBook = new AddressBook();
         defaultAddressBook = new AddressBook(new UniquePersonList(aliceBetsy, bobChaplin));
+        unsortedAddressBook = new AddressBook(new UniquePersonList(davidElliot, charlieDouglas, bobChaplin, aliceBetsy));
     }
 
     @Rule
@@ -120,7 +122,15 @@ public class AddressBookTest {
         thrown.expect(PersonNotFoundException.class);
         defaultAddressBook.removePerson(charlieDouglas);
     }
-
+    
+    @Test
+    public void sort() throws Exception {
+        UniquePersonList unsortedPersons = defaultAddressBook.getAllPersons();
+        UniquePersonList personsToCheck = new UniquePersonList(aliceBetsy, bobChaplin, charlieDouglas, davidElliot);
+        unsortedPersons.sort();();
+        assertTrue(isIdentical(unsortedPersons, personsToCheck));
+    }
+    
     @Test
     public void clear() {
         defaultAddressBook.clear();
