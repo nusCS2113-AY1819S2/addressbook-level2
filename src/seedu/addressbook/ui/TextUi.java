@@ -132,6 +132,14 @@ public class TextUi {
         showToUser(result.feedbackToUser, DIVIDER);
     }
 
+    public void showListAllResultToUser(CommandResult result) {
+        final Optional<List<? extends ReadOnlyPerson>> resultPersons = result.getRelevantPersons();
+        if (resultPersons.isPresent()) {
+            showPrivatePersonListView(resultPersons.get());
+        }
+        showToUser(result.feedbackToUser, DIVIDER);
+    }
+
     /**
      * Shows a list of persons to the user, formatted as an indexed list.
      * Private contact details are hidden.
@@ -140,6 +148,18 @@ public class TextUi {
         final List<String> formattedPersons = new ArrayList<>();
         for (ReadOnlyPerson person : persons) {
             formattedPersons.add(person.getAsTextHidePrivate());
+        }
+        showToUserAsIndexedList(formattedPersons);
+    }
+
+    /**
+     * Shows a list of persons to the user, formatted as an indexed list.
+     * Private contact details are shown.
+     */
+    private void showPrivatePersonListView(List<? extends ReadOnlyPerson> persons) {
+        final List<String> formattedPersons = new ArrayList<>();
+        for (ReadOnlyPerson person : persons) {
+            formattedPersons.add(person.getAsTextShowAll());
         }
         showToUserAsIndexedList(formattedPersons);
     }

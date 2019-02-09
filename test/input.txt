@@ -72,6 +72,13 @@
   viewall 0
   viewall 6
 
+ # should show all non private for all persons for both list and listall
+ list
+ listall
+
+ # should show all details for all persons for listall
+ listall
+
   # should show all non private for both view and viewall
   view 1
   viewall 1

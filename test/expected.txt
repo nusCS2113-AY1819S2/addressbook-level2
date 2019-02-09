@@ -17,8 +17,10 @@
 || find: Finds all persons whose names contain any of the specified keywords (case-sensitive) and displays them as a list with index numbers.
 || Parameters: KEYWORD [MORE_KEYWORDS]...
 || Example: find alice bob charlie
-|| list: Displays all persons in the address book as a list with index numbers.
+|| list: Displays all persons and their non-private details in the address book as a list with index numbers.
 || Example: list
+|| listall: Displays all persons and all their details in the address book as a list with index numbers.
+|| Example: listall
 || view: Views the non-private details of the person identified by the index number in the last shown person listing.
 || Parameters: INDEX
 || Example: view 1
@@ -99,6 +101,12 @@
 || Enter command: || [Command entered:  list]
 || 	1. Adam Brown Phone: 111111 Email: adam@gmail.com Address: 111, alpha street Tags: 
 || 	2. Betsy Choo Tags: [secretive]
+|| 
+|| 2 persons listed!
+|| ===================================================
+|| Enter command: || [Command entered:  listall]
+|| 	1. Adam Brown Phone: 111111 Email: adam@gmail.com Address: 111, alpha street Tags: 
+|| 	2. Betsy Choo Phone: (private) 222222 Email: (private) benchoo@nus.edu.sg Address: (private) 222, beta street Tags: [secretive]
 || 
 || 2 persons listed!
 || ===================================================

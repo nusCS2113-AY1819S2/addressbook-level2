@@ -86,8 +86,11 @@ public class Main {
             command = new Parser().parseCommand(userCommandText);
             CommandResult result = executeCommand(command);
             recordResult(result);
-            ui.showResultToUser(result);
-
+            if (userCommandText.equals("listall")) {
+                ui.showListAllResultToUser(result);
+            } else {
+                ui.showResultToUser(result);
+            }
         } while (!ExitCommand.isExit(command));
     }
 
