@@ -12,6 +12,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import seedu.addressbook.commands.AddCommand;
+import seedu.addressbook.commands.JunkCommand;
 import seedu.addressbook.commands.ClearCommand;
 import seedu.addressbook.commands.Command;
 import seedu.addressbook.commands.DeleteCommand;
@@ -96,7 +97,8 @@ public class Parser {
 
         case ExitCommand.COMMAND_WORD:
             return new ExitCommand();
-
+        case JunkCommand.COMMAND_WORD:
+            return new JunkCommand();
         case HelpCommand.COMMAND_WORD: // Fallthrough
         default:
             return new HelpCommand();
