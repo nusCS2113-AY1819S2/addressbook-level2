@@ -91,6 +91,19 @@ Returns `John Doe` but not `john`.
 * `find Betsy Tim John` +
 Returns Any person having names `Betsy`, `Tim`, or `John`.
 
+== Finding all persons with the specified phone number : `findp`
+
+Find persons whose phone number is the same as the user input.
+Format: `findp PHONE NUMBER`
+
+Examples:
+
+* `findp 12345678` +
+Returns all the people with the phone number 12345678.
+
+* `findp` +
+Returns invalid format.
+
 == Deleting a person : `delete`
 
 Deletes the specified person from the address book. Irreversible. +
