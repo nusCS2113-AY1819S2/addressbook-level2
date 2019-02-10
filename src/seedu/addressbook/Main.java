@@ -4,9 +4,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-import seedu.addressbook.commands.Command;
-import seedu.addressbook.commands.CommandResult;
-import seedu.addressbook.commands.ExitCommand;
+import seedu.addressbook.commands.*;
 import seedu.addressbook.data.AddressBook;
 import seedu.addressbook.data.person.ReadOnlyPerson;
 import seedu.addressbook.parser.Parser;
@@ -14,7 +12,9 @@ import seedu.addressbook.storage.StorageFile;
 import seedu.addressbook.storage.StorageFile.InvalidStorageFilePathException;
 import seedu.addressbook.storage.StorageFile.StorageOperationException;
 import seedu.addressbook.ui.TextUi;
-import seedu.addressbook.commands.ListCommand;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 
@@ -23,6 +23,10 @@ import seedu.addressbook.commands.ListCommand;
  * Initializes the application and starts the interaction with the user.
  */
 public class Main {
+    /**
+     * Used for initial separation of command word and args.
+     */
+    public static final Pattern BASIC_COMMAND_FORMAT = Pattern.compile("(?<commandWord>\\S+)(?<arguments>.*)");
 
     /** Version info of the program. */
     public static final String VERSION = "AddressBook Level 2 - Version 1.0";
@@ -90,10 +94,20 @@ public class Main {
             recordResult(result);
             ui.showResultToUser(result);
 
-            // list all users in the address book after every command action
-            CommandResult test = executeCommand(new ListCommand());
-            ui.showResultToUser(test);
+            // reparse command type and check if the commands are add or delete
+            final Matcher matcher = BASIC_COMMAND_FORMAT.matcher(userCommandText.trim());
+            if (matcher.matches()) {
+                final String commandWord = matcher.group("commandWord");
+                final String arguments = matcher.group("arguments");
 
+                // list all users in the address book after every add or delete command
+                switch (commandWord) {
+                    case AddCommand.COMMAND_WORD:
+                    case DeleteCommand.COMMAND_WORD:
+                        CommandResult test = executeCommand(new ListCommand());
+                        ui.showResultToUser(test);
+                }
+            }
         } while (!ExitCommand.isExit(command));
     }
 
