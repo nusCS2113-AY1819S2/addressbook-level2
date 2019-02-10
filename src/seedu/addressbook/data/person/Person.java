@@ -16,7 +16,7 @@ public class Person implements ReadOnlyPerson {
     private Phone phone;
     private Email email;
     private Address address;
-    private boolean favourite = false;
+    private boolean isFavourite = false;
     private final Set<Tag> tags = new HashSet<>();
 
     /**
@@ -62,12 +62,12 @@ public class Person implements ReadOnlyPerson {
         return new HashSet<>(tags);
     }
 
-    //public boolean isFavourite() { return favourite; }
-
     public boolean setFavourite() {
-        this.favourite = true;
+        this.isFavourite = true;
         return true;
     }
+
+    public boolean getFavourite() { return this.isFavourite; }
 
     /**
      * Replaces this person's tags with the tags in the argument tag set.

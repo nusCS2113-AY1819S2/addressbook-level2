@@ -3,7 +3,7 @@ package seedu.addressbook.commands;
 import seedu.addressbook.common.Messages;
 import seedu.addressbook.data.person.ReadOnlyPerson;
 import seedu.addressbook.data.person.UniquePersonList.PersonNotFoundException;
-
+import seedu.addressbook.data.person.UniquePersonList.AlreadyFavouritedException;
 
 /**
  * Favourites a person identified using it's last displayed index from the address book.
@@ -18,7 +18,7 @@ public class FavouriteCommand extends Command {
             + "Example: " + COMMAND_WORD + " 1";
 
     public static final String MESSAGE_FAVOURITE_PERSON_SUCCESS = "Favourited %1$s";
-
+    public static final String MESSAGE_PERSON_ALREADY_FAVOURITED = "Peron is already favourited";
 
     public FavouriteCommand(int targetVisibleIndex) {
         super(targetVisibleIndex);
@@ -31,11 +31,12 @@ public class FavouriteCommand extends Command {
             final ReadOnlyPerson target = getTargetPerson();
             addressBook.favouritePerson(target);
             return new CommandResult(String.format(MESSAGE_FAVOURITE_PERSON_SUCCESS, target));
-
         } catch (IndexOutOfBoundsException ie) {
             return new CommandResult(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         } catch (PersonNotFoundException pnfe) {
             return new CommandResult(Messages.MESSAGE_PERSON_NOT_IN_ADDRESSBOOK);
+        } catch (AlreadyFavouritedException pnfe) {
+            return new CommandResult(MESSAGE_PERSON_ALREADY_FAVOURITED);
         }
     }
 
