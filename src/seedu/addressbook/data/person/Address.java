@@ -14,10 +14,6 @@ public class Address {
 
     public final String value;
     private boolean isPrivate;
-    private String block;
-    private String street;
-    private String unit;
-    private String postalCode;
 
     /**
      * Validates given address.
@@ -31,14 +27,7 @@ public class Address {
             throw new IllegalValueException(MESSAGE_ADDRESS_CONSTRAINTS);
         }
         this.value = trimmedAddress;
-        this.unit = this.postalCode = null;
-        String[] arrSplit = value.split(", ");
-        for (int i = 0; i < arrSplit.length; i++){
-            if (i == 0) this.block = arrSplit[i];
-            if (i == 1) this.street = arrSplit[i];
-            if (i == 2) this.unit = arrSplit[i];
-            if (i == 3) this.postalCode = arrSplit[i];
-        }
+
     }
 
     /**
