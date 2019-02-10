@@ -188,7 +188,6 @@ public class Parser {
                 rest = rest + data[i] + " ";
             }
             final int targetIndex = parseArgsAsDisplayedIndex(index);
-            System.out.println(targetIndex);
             final Matcher matcher = PERSON_DATA_ARGS_FORMAT.matcher(rest.trim());
             if (!matcher.matches()) {
                 return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
