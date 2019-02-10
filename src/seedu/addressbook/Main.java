@@ -14,6 +14,8 @@ import seedu.addressbook.storage.StorageFile;
 import seedu.addressbook.storage.StorageFile.InvalidStorageFilePathException;
 import seedu.addressbook.storage.StorageFile.StorageOperationException;
 import seedu.addressbook.ui.TextUi;
+import seedu.addressbook.commands.ListCommand;
+
 
 
 /**
@@ -87,6 +89,10 @@ public class Main {
             CommandResult result = executeCommand(command);
             recordResult(result);
             ui.showResultToUser(result);
+
+            // list all users in the address book after every command action
+            CommandResult test = executeCommand(new ListCommand());
+            ui.showResultToUser(test);
 
         } while (!ExitCommand.isExit(command));
     }
