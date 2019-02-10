@@ -10,6 +10,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.ArrayList;
 
 import seedu.addressbook.commands.AddCommand;
 import seedu.addressbook.commands.ClearCommand;
@@ -58,6 +59,11 @@ public class Parser {
     public static final Pattern BASIC_COMMAND_FORMAT = Pattern.compile("(?<commandWord>\\S+)(?<arguments>.*)");
 
     /**
+     * Store every entered command into an array list.
+     */
+    private static ArrayList<String> commandHistory = new ArrayList<String>();
+    
+    /**
      * Parses user input into command for execution.
      *
      * @param userInput full user input string
@@ -69,6 +75,8 @@ public class Parser {
             return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));
         }
 
+        commandHistory.add(userInput);
+        
         final String commandWord = matcher.group("commandWord");
         final String arguments = matcher.group("arguments");
 
@@ -99,7 +107,7 @@ public class Parser {
             return new ExitCommand();
 
         case HistoryCommand.COMMAND_WORD:
-            return new HistoryCommand();
+            return new HistoryCommand(commandHistory);
 
         case HelpCommand.COMMAND_WORD: // Fallthrough
         default:
