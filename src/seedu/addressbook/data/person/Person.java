@@ -1,5 +1,6 @@
 package seedu.addressbook.data.person;
 
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -10,7 +11,7 @@ import seedu.addressbook.data.tag.Tag;
  * Represents a Person in the address book.
  * Guarantees: details are present and not null, field values are validated.
  */
-public class Person implements ReadOnlyPerson {
+public class Person implements ReadOnlyPerson,Comparable<Person>{
 
     private Name name;
     private Phone phone;
@@ -87,5 +88,20 @@ public class Person implements ReadOnlyPerson {
     public String toString() {
         return getAsTextShowAll();
     }
+
+	@Override
+	public int compareTo(Person o) {
+		if(this.getName().compareTo(o.getName()) > 0) {
+			return 1;
+		}
+		else if(this.getName().compareTo(o.getName()) < 0) {
+			return -1;
+		}else {
+			return 0;
+		}
+		
+	}
+
+
 
 }

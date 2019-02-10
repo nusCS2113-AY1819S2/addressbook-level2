@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
@@ -18,7 +19,7 @@ import seedu.addressbook.data.exception.DuplicateDataException;
  * @see Person#equals(Object)
  * @see Utils#elementsAreUnique(Collection)
  */
-public class UniquePersonList implements Iterable<Person> {
+public class UniquePersonList implements Iterable<Person>{
 
     /**
      * Signals that an operation would have violated the 'no duplicates' property of the list.
@@ -140,4 +141,25 @@ public class UniquePersonList implements Iterable<Person> {
                 || (other instanceof UniquePersonList // instanceof handles nulls
                         && this.internalList.equals(((UniquePersonList) other).internalList));
     }
+
+	public List<Person> sort(){
+		Collections.sort(internalList, new Comparator<Person>() {
+			public int compare(Person o1, Person o2) {
+				if(o1.getName().compareTo(o2.getName()) > 0) {
+					return 1;
+				}
+				else if(o1.getName().compareTo(o2.getName()) < 0) {
+					return -1;
+				}
+				else {
+					return 0;
+				}
+				
+			}		
+		});
+		return internalList;
+		
+	}
+
+
 }

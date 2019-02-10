@@ -1,4 +1,4 @@
-package seedu.addressbook;
+package src.seedu.addressbook;
 
 import java.util.Collections;
 import java.util.List;
@@ -21,7 +21,6 @@ import seedu.addressbook.ui.TextUi;
  * Initializes the application and starts the interaction with the user.
  */
 public class Main {
-
     /** Version info of the program. */
     public static final String VERSION = "AddressBook Level 2 - Version 1.0";
 
@@ -72,6 +71,9 @@ public class Main {
         }
     }
 
+    
+    
+    
     /** Prints the Goodbye message and exits. */
     private void exit() {
         ui.showGoodbyeMessage();

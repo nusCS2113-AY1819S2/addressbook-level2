@@ -139,6 +139,17 @@
   # listing indexes get updated on next request
   delete 1
   list
+##########################################################
+# test Sort command
+##########################################################
+  # Sort Person by their name
+  Sort
+  list
+  
+  #Add a new person to check Sort
+  add Charlie Dickson pp/333333 e/charlie.d@nus.edu.sg a/333, gamma street t/friends t/school
+  list
+  sort
 
 ##########################################################
 # test clear command
