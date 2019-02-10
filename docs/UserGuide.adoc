@@ -60,6 +60,8 @@ Put a `p` before the phone / email / address prefixes to mark it as `private`. `
 be seen using the `viewall` command.
 
 Persons can have any number of tags (including 0).
+
+A list of the updated Address Book will be displayed after a person is successfully added.
 ****
 
 Examples:
