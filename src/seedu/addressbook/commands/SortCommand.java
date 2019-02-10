@@ -13,7 +13,9 @@ import java.util.TreeSet;
 import com.sun.corba.se.impl.encoding.OSFCodeSetRegistry.Entry;
 import com.sun.javafx.collections.MappingChange.Map;
 
+import seedu.addressbook.data.person.Person;
 import seedu.addressbook.data.person.ReadOnlyPerson;
+import seedu.addressbook.data.person.UniquePersonList.DuplicatePersonException;
 
 public class SortCommand extends Command{
     public static final String COMMAND_WORD = "Sort";
@@ -25,7 +27,14 @@ public class SortCommand extends Command{
 
     @Override
     public CommandResult execute() {
-        List<ReadOnlyPerson> allPersons = addressBook.getAllPersons().immutableListView();
+        List<ReadOnlyPerson> allPersons = null;
+		try {
+			allPersons = addressBook.getSortedPersons().immutableListView();
+		} catch (DuplicatePersonException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
         return new CommandResult(getMessageForPersonListShownSummary(allPersons), allPersons);
     }
 

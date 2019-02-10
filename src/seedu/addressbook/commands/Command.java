@@ -3,6 +3,7 @@ package seedu.addressbook.commands;
 import seedu.addressbook.common.Messages;
 import seedu.addressbook.data.AddressBook;
 import seedu.addressbook.data.person.ReadOnlyPerson;
+import seedu.addressbook.data.person.UniquePersonList.DuplicatePersonException;
 
 import java.util.List;
 
@@ -38,8 +39,9 @@ public class Command {
 
     /**
      * Executes the command and returns the result.
+     * 
      */
-    public CommandResult execute(){
+    public CommandResult execute() throws DuplicatePersonException{
         throw new UnsupportedOperationException("This method is to be implemented by child classes");
     };
 
@@ -63,7 +65,8 @@ public class Command {
     public int getTargetIndex() {
         return targetIndex;
     }
-
+     
+    
     public void setTargetIndex(int targetIndex) {
         this.targetIndex = targetIndex;
     }

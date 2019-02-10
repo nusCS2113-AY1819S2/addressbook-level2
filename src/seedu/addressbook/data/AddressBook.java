@@ -1,5 +1,9 @@
 package seedu.addressbook.data;
 
+import java.util.Collections;
+
+import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
+
 import seedu.addressbook.data.person.Person;
 import seedu.addressbook.data.person.ReadOnlyPerson;
 import seedu.addressbook.data.person.UniquePersonList;
@@ -67,11 +71,16 @@ public class AddressBook {
     public UniquePersonList getAllPersons() {
         return new UniquePersonList(allPersons);
     }
-
+    
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof AddressBook // instanceof handles nulls
                         && this.allPersons.equals(((AddressBook) other).allPersons));
     }
+
+	public UniquePersonList getSortedPersons() throws DuplicatePersonException {
+		allPersons.sort();
+		return new UniquePersonList(allPersons);
+	}
 }
