@@ -38,4 +38,8 @@ public class ViewCommand extends Command {
         }
     }
 
+    public static void sortCommand(String[] args){
+
+    }
+
 }
