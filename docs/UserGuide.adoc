@@ -74,12 +74,12 @@ Format: `list`
 
 == Finding all persons containing any keyword in their name: `find`
 
-Finds persons whose names contain any of the given keywords. +
+Finds persons whose details (name, number, email) contain any of the given keywords. +
 Format: `find KEYWORD [MORE_KEYWORDS]`
 
 [NOTE]
 ====
-The search is case sensitive, the order of the keywords does not matter, only the name is searched,
+The search is case sensitive, the order of the keywords does not matter,
 and persons matching at least one keyword will be returned (i.e. `OR` search).
 ====
 
@@ -88,8 +88,8 @@ Examples:
 * `find John` +
 Returns `John Doe` but not `john`.
 
-* `find Betsy Tim John` +
-Returns Any person having names `Betsy`, `Tim`, or `John`.
+* `find Betsy Tim 98765432` +
+Returns Any person having names `Betsy` or `Tim` or number `98765432`.
 
 == Deleting a person : `delete`
 
