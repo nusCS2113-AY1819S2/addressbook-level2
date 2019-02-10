@@ -14,6 +14,7 @@ import seedu.addressbook.common.Messages;
 import seedu.addressbook.data.AddressBook;
 import seedu.addressbook.data.person.Address;
 import seedu.addressbook.data.person.Email;
+import seedu.addressbook.data.person.Gender;
 import seedu.addressbook.data.person.Name;
 import seedu.addressbook.data.person.Person;
 import seedu.addressbook.data.person.Phone;
@@ -46,6 +47,7 @@ public class ViewCommandTest {
     public void execute_personNotInAddressBook_returnsPersonNotInAddressBookMessage() throws Exception {
         // generate list with person not in addressbook, add to list
         ReadOnlyPerson stranger = new Person(new Name("me"),
+                                             new Gender("F"),
                                              new Phone("123", true),
                                              new Email("some@hey.go", true),
                                              new Address("nus", false),

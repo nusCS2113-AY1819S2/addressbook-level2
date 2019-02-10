@@ -13,6 +13,7 @@ import seedu.addressbook.data.tag.Tag;
 public class Person implements ReadOnlyPerson {
 
     private Name name;
+    private Gender gender;
     private Phone phone;
     private Email email;
     private Address address;
@@ -22,8 +23,9 @@ public class Person implements ReadOnlyPerson {
     /**
      * Assumption: Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
+    public Person(Name name, Gender gender, Phone phone, Email email, Address address, Set<Tag> tags) {
         this.name = name;
+        this.gender = gender;
         this.phone = phone;
         this.email = email;
         this.address = address;
@@ -34,13 +36,16 @@ public class Person implements ReadOnlyPerson {
      * Copy constructor.
      */
     public Person(ReadOnlyPerson source) {
-        this(source.getName(), source.getPhone(), source.getEmail(), source.getAddress(), source.getTags());
+        this(source.getName(), source.getGender(), source.getPhone(), source.getEmail(), source.getAddress(), source.getTags());
     }
 
     @Override
     public Name getName() {
         return name;
     }
+
+    @Override
+    public Gender getGender() { return gender; }
 
     @Override
     public Phone getPhone() {
@@ -80,7 +85,7 @@ public class Person implements ReadOnlyPerson {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, tags);
+        return Objects.hash(name, gender, phone, email, address, tags);
     }
 
     @Override

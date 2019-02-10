@@ -29,6 +29,8 @@ public class AddressBookEncoder {
 
         encodedPersonBuilder.append(person.getName());
 
+        encodedPersonBuilder.append("g/").append(person.getGender().value);
+
         encodedPersonBuilder.append(person.getPhone().isPrivate() ? " p" : " ");
         encodedPersonBuilder.append("p/").append(person.getPhone().value);
 

@@ -18,6 +18,7 @@ import seedu.addressbook.data.AddressBook;
 import seedu.addressbook.data.exception.IllegalValueException;
 import seedu.addressbook.data.person.Address;
 import seedu.addressbook.data.person.Email;
+import seedu.addressbook.data.person.Gender;
 import seedu.addressbook.data.person.Name;
 import seedu.addressbook.data.person.Person;
 import seedu.addressbook.data.person.Phone;
@@ -106,7 +107,7 @@ public class TestUtil {
 
     public static Person generateTestPerson() {
         try {
-            return new Person(new Name(Name.EXAMPLE), new Phone(Phone.EXAMPLE, false),
+            return new Person(new Name(Name.EXAMPLE), new Gender(Gender.EXAMPLE), new Phone(Phone.EXAMPLE, false),
                     new Email(Email.EXAMPLE, true), new Address(Address.EXAMPLE, false), Collections.emptySet());
         } catch (IllegalValueException e) {
             fail("test person data should be valid by definition");
