@@ -11,6 +11,7 @@ import seedu.addressbook.data.tag.Tag;
 public interface ReadOnlyPerson {
 
     Name getName();
+    Gender getGender();
     Phone getPhone();
     Email getEmail();
     Address getAddress();
@@ -39,6 +40,7 @@ public interface ReadOnlyPerson {
         return other == this // short circuit if same object
                 || (other != null // this is first to avoid NPE below
                     && other.getName().equals(this.getName()) // state checks here onwards
+                    && other.getGender().equals(this.getGender())
                     && other.getPhone().equals(this.getPhone())
                     && other.getEmail().equals(this.getEmail())
                     && other.getAddress().equals(this.getAddress())
@@ -51,22 +53,30 @@ public interface ReadOnlyPerson {
     default String getAsTextShowAll() {
         final StringBuilder builder = new StringBuilder();
         final String detailIsPrivate = "(private) ";
+
         builder.append(getName())
+
+                .append(" Gender: ");
+        builder.append(getGender())
+
                 .append(" Phone: ");
         if (getPhone().isPrivate()) {
             builder.append(detailIsPrivate);
         }
         builder.append(getPhone())
+
                 .append(" Email: ");
         if (getEmail().isPrivate()) {
             builder.append(detailIsPrivate);
         }
         builder.append(getEmail())
+
                 .append(" Address: ");
         if (getAddress().isPrivate()) {
             builder.append(detailIsPrivate);
         }
         builder.append(getAddress())
+
                 .append(" Tags: ");
         for (Tag tag : getTags()) {
             builder.append(tag);
@@ -80,6 +90,9 @@ public interface ReadOnlyPerson {
     default String getAsTextHidePrivate() {
         final StringBuilder builder = new StringBuilder();
         builder.append(getName());
+
+        builder.append(" Gender: ").append(getGender());
+
         if (!getPhone().isPrivate()) {
             builder.append(" Phone: ").append(getPhone());
         }
