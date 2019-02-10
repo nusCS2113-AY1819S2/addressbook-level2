@@ -84,16 +84,16 @@ public class UniquePersonList implements Iterable<Person> {
 
     /*
      * Sort the list based on their name.
-     * "DEF,ghh,ZXC,abc" will become "abc,DEF,ghh,ZXC"
+     * "DEF, ghh, ZXC, abc" will become "abc, DEF, ghh, ZXC"
      */
 
-    public void sort(){
+    public void sort() {
         Comparator<Person> personComparator = (personA, personB) -> {
             Name personAName = personA.getName();
             Name personBName = personB.getName();
             return personAName.compareTo(personBName);
         };
-        Collections.sort(internalList,personComparator);
+        Collections.sort(internalList, personComparator);
     }
 
     /**

@@ -1,12 +1,12 @@
 package seedu.addressbook.commands;
 
-import seedu.addressbook.data.person.ReadOnlyPerson;
-
 import java.util.List;
+
+import seedu.addressbook.data.person.ReadOnlyPerson;
 
 
 /**
- * Lists all persons in the address book to the user.
+ * Sort all persons in the address book in lexicographical order.
  */
 public class SortCommand extends Command {
 
@@ -14,7 +14,7 @@ public class SortCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Displays all persons in the address book as a list sorted by their name"
-            + ", in alphabetical order.\n"
+            + ", in lexicographical order.\n"
             + "Example: " + COMMAND_WORD;
 
 

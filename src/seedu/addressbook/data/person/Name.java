@@ -1,9 +1,9 @@
 package seedu.addressbook.data.person;
 
-import seedu.addressbook.data.exception.IllegalValueException;
-
 import java.util.Arrays;
 import java.util.List;
+
+import seedu.addressbook.data.exception.IllegalValueException;
 
 /**
  * Represents a Person's name in the address book.
@@ -60,8 +60,11 @@ public class Name implements Comparable<Name> {
         return fullName.hashCode();
     }
 
+    /**
+     * The comparator now check in lexocographical order and is case in-sensitive
+     */
     @Override
-    public int compareTo(Name name){
+    public int compareTo(Name name) {
         return this.fullName.compareToIgnoreCase(name.fullName);
     }
 

@@ -1,6 +1,5 @@
 package seedu.addressbook.parser;
 
-import seedu.addressbook.commands.SortCommand;
 import static seedu.addressbook.common.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.addressbook.common.Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX;
 
@@ -21,6 +20,7 @@ import seedu.addressbook.commands.FindCommand;
 import seedu.addressbook.commands.HelpCommand;
 import seedu.addressbook.commands.IncorrectCommand;
 import seedu.addressbook.commands.ListCommand;
+import seedu.addressbook.commands.SortCommand;
 import seedu.addressbook.commands.ViewAllCommand;
 import seedu.addressbook.commands.ViewCommand;
 import seedu.addressbook.data.exception.IllegalValueException;
@@ -221,7 +221,7 @@ public class Parser {
      *
      * @param args arguments string to parse as index number
      * @return the parsed index number
-     * @throws ParseException if no region of the args string could be found for the index
+     * @throws ParseException        if no region of the args string could be found for the index
      * @throws NumberFormatException the args string region is not a valid number
      */
     private int parseArgsAsDisplayedIndex(String args) throws ParseException, NumberFormatException {

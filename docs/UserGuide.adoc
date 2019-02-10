@@ -74,7 +74,7 @@ Format: `list`
 
 == Listing all persons by their name : `sort`
 
-Shows a list of all persons sorted by their name in alphabetical orders, in the address book. +
+Shows a list of all persons sorted by their name in lexicographical orders, in the address book. +
 Format: `sort`
 
 == Finding all persons containing any keyword in their name: `find`
