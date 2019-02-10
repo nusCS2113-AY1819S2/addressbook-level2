@@ -161,6 +161,10 @@ Format: `clear`
 Exits the program. +
 Format: `exit`
 
+== Saying Hello! : hello
+Displays the phrase hello!
+Format: `hello`
+
 == Saving the data
 
 Address book data are saved in the hard disk automatically after any command that changes the data.
