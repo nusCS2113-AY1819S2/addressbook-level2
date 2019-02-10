@@ -20,9 +20,10 @@ import seedu.addressbook.commands.ExitCommand;
 import seedu.addressbook.commands.FindCommand;
 import seedu.addressbook.commands.HelpCommand;
 import seedu.addressbook.commands.IncorrectCommand;
-import seedu.addressbook.commands.ListCommand;
 import seedu.addressbook.commands.ViewAllCommand;
+import seedu.addressbook.commands.ListCommand;
 import seedu.addressbook.commands.ViewCommand;
+import seedu.addressbook.commands.HappyCommand;
 import seedu.addressbook.data.exception.IllegalValueException;
 import seedu.addressbook.data.person.Address;
 import seedu.addressbook.data.person.Email;
@@ -62,6 +63,12 @@ public class ParserTest {
     /*
      * Tests for 0-argument commands =======================================================================
      */
+
+    @Test
+    public void parse_happyCommand_parsedCorrectly() {
+        final String input = "happy";
+        parseAndAssertCommandType(input, HappyCommand.class);
+    }
 
     @Test
     public void parse_helpCommand_parsedCorrectly() {
