@@ -30,6 +30,13 @@ public class UniquePersonList implements Iterable<Person> {
     }
 
     /**
+     * Signals that the person is already favourited.
+     */
+    public static class AlreadyFavouritedException extends  DuplicateDataException {
+        protected AlreadyFavouritedException() { super("Peron is already favourited"); }
+    }
+
+    /**
      * Signals that an operation targeting a specified person in the list would fail because
      * there is no such matching person in the list.
      */
@@ -119,6 +126,23 @@ public class UniquePersonList implements Iterable<Person> {
         final boolean personFoundAndDeleted = internalList.remove(toRemove);
         if (!personFoundAndDeleted) {
             throw new PersonNotFoundException();
+        }
+    }
+
+    /**
+     * Favourites the equivalent person from the list.
+     *
+     * @throws PersonNotFoundException if no such person could be found in the list.
+     * @throws AlreadyFavouritedException if person is already favourited.
+     */
+    public void favourite(ReadOnlyPerson toFavourite) throws PersonNotFoundException, AlreadyFavouritedException {
+        if(internalList.get(internalList.indexOf(toFavourite)).getFavourite()) {
+            throw new AlreadyFavouritedException();
+        } else {
+            final boolean personFoundAndFavourited = internalList.get(internalList.indexOf(toFavourite)).setFavourite();
+            if (!personFoundAndFavourited) {
+                throw new PersonNotFoundException();
+            }
         }
     }
 
