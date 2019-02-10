@@ -149,7 +149,7 @@
   list
   
 ##########################################################
-# test clear command
+# test history command
 ##########################################################
 
   # every single command previously entered should be shown
