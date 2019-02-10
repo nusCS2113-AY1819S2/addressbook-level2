@@ -37,6 +37,13 @@ What's different from AddressBook-Level1:
 * Support for storing address (`a/`) and tags (`t/`)
 * Support for marking a contact detail as 'private' (`pa/`) (`pe/`) (`pp/`)
 * View details of a person (`view` : shows non-private details), (`viewall` : shows all details)
+* Supports login function (`Enter your Username` and `Enter your Password`: will be shown at the start of the program)
+
+== Logging in
+
+The program will repeatedly request for login details.
+Usernames and passwords are case sensitive.
+You are not allowed to proceed without a valid username and password.
 
 == Viewing help : `help`
 

@@ -91,6 +91,22 @@ public class TextUi {
         return fullInputLine;
     }
 
+    public void loginInfo() {
+        boolean status = true;
+        while (status) {
+            System.out.println("Enter your Username: ");
+            String username = in.nextLine();
+            System.out.println("Enter your Password: ");
+            String password = in.nextLine();
+            if (username.equals("nicholas") && password.equals("nicholas")) {
+                status = false;
+                System.out.println("Logged in!\n");
+            } else {
+                System.out.println("Incorrect username or password!\n");
+            }
+        }
+    }
+
 
     public void showWelcomeMessage(String version, String storageFilePath) {
         String storageFileInfo = String.format(MESSAGE_USING_STORAGE_FILE, storageFilePath);
