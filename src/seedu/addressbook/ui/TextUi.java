@@ -6,6 +6,7 @@ import static seedu.addressbook.common.Messages.MESSAGE_PROGRAM_LAUNCH_ARGS_USAG
 import static seedu.addressbook.common.Messages.MESSAGE_USING_STORAGE_FILE;
 import static seedu.addressbook.common.Messages.MESSAGE_WELCOME;
 
+import java.awt.geom.NoninvertibleTransformException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
+import seedu.addressbook.Main;
 import seedu.addressbook.commands.CommandResult;
 import seedu.addressbook.data.person.ReadOnlyPerson;
 
@@ -168,5 +170,34 @@ public class TextUi {
     private static String getIndexedListItem(int visibleIndex, String listItem) {
         return String.format(MESSAGE_INDEXED_LIST_ITEM, visibleIndex, listItem);
     }
+
+    public static String[] notes() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("How many items are there?");
+        int number = input.nextInt();
+        int counter;
+        String[] instruct = new String[number+1];
+        for (counter = 0; counter <= number; counter++) {
+            String str = input.nextLine();
+            if (str.equals("done")) {
+                break;
+            } else {
+                instruct[counter] = str;
+            }
+        }
+        System.out.println("Noted down");
+
+        return instruct;
+    }
+
+    public static void viewNotes(){
+        String[] result = Main.getnote();
+        for(String str: result){
+            System.out.println(str);
+        }
+
+
+    }
+
 
 }
