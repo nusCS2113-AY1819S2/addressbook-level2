@@ -62,6 +62,13 @@ public class AddressBook {
     }
 
     /**
+     * Sort all persons in the address book by their names lexicographically.
+     */
+    public void sort() {
+        allPersons.sort();
+    }
+
+    /**
      * Returns a new UniquePersonList of all persons in the address book at the time of the call.
      */
     public UniquePersonList getAllPersons() {
