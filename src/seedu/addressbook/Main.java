@@ -24,7 +24,7 @@ public class Main {
 
     /** Version info of the program. */
     public static final String VERSION = "AddressBook Level 2 - Version 1.0";
-
+    private static String[] NOTE;
     private TextUi ui;
     private StorageFile storage;
     private AddressBook addressBook;
@@ -83,10 +83,18 @@ public class Main {
         Command command;
         do {
             String userCommandText = ui.getUserCommand();
-            command = new Parser().parseCommand(userCommandText);
-            CommandResult result = executeCommand(command);
-            recordResult(result);
-            ui.showResultToUser(result);
+            if (userCommandText.equals("note"))
+                NOTE = TextUi.notes();
+
+                if (userCommandText.equals("viewnote"))
+                    TextUi.viewNotes();
+
+                    command = new Parser().parseCommand(userCommandText);
+                    CommandResult result = executeCommand(command);
+                    recordResult(result);
+                    ui.showResultToUser(result);
+
+
 
         } while (!ExitCommand.isExit(command));
     }
@@ -125,6 +133,11 @@ public class Main {
     private StorageFile initializeStorage(String[] launchArgs) throws InvalidStorageFilePathException {
         boolean isStorageFileSpecifiedByUser = launchArgs.length > 0;
         return isStorageFileSpecifiedByUser ? new StorageFile(launchArgs[0]) : new StorageFile();
+    }
+
+    public static String[] getnote(){
+
+     return NOTE;
     }
 
 
