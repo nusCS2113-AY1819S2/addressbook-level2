@@ -38,6 +38,10 @@ public class AddressBook {
         allPersons.add(toAdd);
     }
 
+    public void greetCNY() {
+        System.out.println("Happy Chinese New Year!!! Have you done your homework???");
+    }
+
     /**
      * Returns true if an equivalent person exists in the address book.
      */
