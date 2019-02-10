@@ -101,6 +101,7 @@
 
   # find unique keyword
   find Betsy
+  find adam@gmail.com
   # find multiple with same keyword
   find Dickson
   # find multiple with some keywords
