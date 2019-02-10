@@ -80,10 +80,10 @@ public class AddressBook {
     }
 
     public List<ReadOnlyPerson> sortPersons( List<ReadOnlyPerson> allPersons) {
-        if (allPersons.size()>1) {
+        if (allPersons.size() > 1) {
             Collections.sort(allPersons, new Comparator<ReadOnlyPerson>() {
                 public int compare(ReadOnlyPerson a, ReadOnlyPerson b) {
-                    return a.getName().toString().compareTo(b.getName().toString());
+                    return a.getName().compareTo(b.getName());
                 }
             });
         }
