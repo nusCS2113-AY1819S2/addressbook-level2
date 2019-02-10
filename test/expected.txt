@@ -297,6 +297,77 @@
 || 
 || 0 persons listed!
 || ===================================================
+|| Enter command: || [Command entered:  history]
+|| Commands History: 
+||   history
+||   list
+||   clear
+||   list
+||   delete 1
+||   list
+||   delete 4
+||   list
+||   viewall 2
+||   view 2
+||   delete 2
+||   delete 2
+||   delete 3
+||   delete 0
+||   delete -1
+||   delete should be only one number
+||   delete
+||   find Charlie Betsy
+||   find Dickson
+||   find Betsy
+||   find betsy
+||   find 23912039120
+||   find bet
+||   find
+||   viewall 5
+||   viewall 4
+||   viewall 3
+||   view 5
+||   view 4
+||   view 3
+||   viewall 1
+||   view 1
+||   viewall 6
+||   viewall 0
+||   viewall -1
+||   view 6
+||   view 0
+||   view -1
+||   viewall should only be one number
+||   view should be only one number
+||   viewall
+||   view
+||   add Esther Potato p/555555 e/esther@not.a.real.potato pa/555, epsilon street t/tubers t/starchy
+||   list
+||   add Esther Potato p/555555 e/esther@not.a.real.potato pa/555, epsilon street t/tubers t/starchy
+||   list
+||   add Dickson Ee p/444444 pe/dickson@nus.edu.sg a/444, delta street t/friends
+||   list
+||   add Charlie Dickson pp/333333 e/charlie.d@nus.edu.sg a/333, gamma street t/friends t/school
+||   list
+||   add Betsy Choo pp/222222 pe/benchoo@nus.edu.sg pa/222, beta street t/secretive
+||   list
+||   add Adam Brown p/111111 e/adam@gmail.com a/111, alpha street
+||   add Valid Name p/12345 e/valid@e.mail a/valid, address t/invalid_-[.tag
+||   add Valid Name p/12345 e/notAnEmail a/valid, address
+||   add Valid Name p/not_numbers e/valid@e.mail a/valid, address
+||   add []\[;] p/12345 e/valid@e.mail a/valid, address
+||   add Valid Name p/12345 e/valid@email.butNoTagPrefix a/valid, address t/goodTag noPrefixTag
+||   add Valid Name p/12345 e/valid@email.butNoAddressPrefix valid, address
+||   add Valid Name p/12345 valid@email.butNoPrefix a/valid, address
+||   add Valid Name 12345 e/valid@email.butNoPhonePrefix a/valid, address
+||   add wrong args wrong args
+||   list
+||   clear
+||   viewall 1
+||   view 1
+||   delete 1
+||   sfdfd
+|| ===================================================
 || Enter command: || [Command entered:  exit]
 || Exiting Address Book as requested ...
 || ===================================================
