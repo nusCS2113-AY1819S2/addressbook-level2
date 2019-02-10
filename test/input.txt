@@ -147,6 +147,7 @@
   # clears all
   clear
   list
+  sort
 
 ##########################################################
 # test exit command

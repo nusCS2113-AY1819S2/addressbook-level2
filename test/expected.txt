@@ -297,6 +297,11 @@
 || 
 || 0 persons listed!
 || ===================================================
+|| ===================================================
+|| Enter command: || [Command entered:  sort]
+||
+|| 0 persons listed!
+|| ===================================================
 || Enter command: || [Command entered:  exit]
 || Exiting Address Book as requested ...
 || ===================================================
