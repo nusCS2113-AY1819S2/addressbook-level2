@@ -23,6 +23,7 @@ import seedu.addressbook.commands.ListCommand;
 import seedu.addressbook.commands.ViewAllCommand;
 import seedu.addressbook.commands.ViewCommand;
 import seedu.addressbook.data.exception.IllegalValueException;
+import seedu.addressbook.commands.UpdateCommand;
 
 /**
  * Parses user input.
@@ -96,6 +97,9 @@ public class Parser {
 
         case ExitCommand.COMMAND_WORD:
             return new ExitCommand();
+
+        case UpdateCommand.COMMAND_WORD:
+            return prepareUpdate(arguments);
 
         case HelpCommand.COMMAND_WORD: // Fallthrough
         default:
@@ -174,6 +178,45 @@ public class Parser {
         }
     }
 
+    private Command prepareUpdate(String args)  {
+        try{
+            String[] data = args.split(" ");
+            String index = data[1];
+            String rest = "";
+            for(int i = 2; i < data.length; i++)
+            {
+                rest = rest + data[i] + " ";
+            }
+            final int targetIndex = parseArgsAsDisplayedIndex(index);
+            System.out.println(targetIndex);
+            final Matcher matcher = PERSON_DATA_ARGS_FORMAT.matcher(rest.trim());
+            if (!matcher.matches()) {
+                return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
+            }
+            return new UpdateCommand(
+                    targetIndex,
+                    matcher.group("name"),
+
+                    matcher.group("phone"),
+                    isPrivatePrefixPresent(matcher.group("isPhonePrivate")),
+
+                    matcher.group("email"),
+                    isPrivatePrefixPresent(matcher.group("isEmailPrivate")),
+
+                    matcher.group("address"),
+                    isPrivatePrefixPresent(matcher.group("isAddressPrivate")),
+
+                    getTagsFromArgs(matcher.group("tagArguments"))
+            );
+        } catch (ParseException pe) {
+            return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteCommand.MESSAGE_USAGE));
+        } catch (NumberFormatException nfe) {
+            return new IncorrectCommand(MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+        } catch (IllegalValueException ive) {
+            return new IncorrectCommand(ive.getMessage());
+        }
+    }
+
     /**
      * Parses arguments in the context of the view command.
      *
@@ -184,6 +227,7 @@ public class Parser {
 
         try {
             final int targetIndex = parseArgsAsDisplayedIndex(args);
+
             return new ViewCommand(targetIndex);
         } catch (ParseException pe) {
             return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
