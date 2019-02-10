@@ -17,6 +17,7 @@ import seedu.addressbook.commands.Command;
 import seedu.addressbook.commands.DeleteCommand;
 import seedu.addressbook.commands.ExitCommand;
 import seedu.addressbook.commands.FindCommand;
+import seedu.addressbook.commands.HappyCNY;
 import seedu.addressbook.commands.HelpCommand;
 import seedu.addressbook.commands.IncorrectCommand;
 import seedu.addressbook.commands.ListCommand;
@@ -97,7 +98,11 @@ public class Parser {
         case ExitCommand.COMMAND_WORD:
             return new ExitCommand();
 
+
         case HelpCommand.COMMAND_WORD: // Fallthrough
+
+            case HappyCNY.COMMAND_WORD:
+                return new HappyCNY();
         default:
             return new HelpCommand();
         }

@@ -91,6 +91,18 @@ Returns `John Doe` but not `john`.
 * `find Betsy Tim John` +
 Returns Any person having names `Betsy`, `Tim`, or `John`.
 
+== Happy Chinese New Year: "HappyCNY"
+
+This application will represent the coders to say Happy Chinese New Year to the users
+and ask then have they done their homework.
+
+Format: 'HappyCNY'
+
+Example:
+
+* 'HappyCNY'
+Returns "Happy Chinese New Year!!! Have you done your homework???"
+
 == Deleting a person : `delete`
 
 Deletes the specified person from the address book. Irreversible. +
