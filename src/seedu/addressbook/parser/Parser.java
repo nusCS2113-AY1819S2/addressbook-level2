@@ -79,7 +79,10 @@ public class Parser {
         case DeleteCommand.COMMAND_WORD:
             return prepareDelete(arguments);
 
-        case ClearCommand.COMMAND_WORD:
+        case DummySortCommand.COMMAND_WORD:
+            return new DummySortCommand();
+
+        case ClearCommand.COMMAND_WORD
             return new ClearCommand();
 
         case FindCommand.COMMAND_WORD:
