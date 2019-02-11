@@ -34,7 +34,11 @@ public class Email {
      * Returns true if the given string is a valid person email.
      */
     public static boolean isValidEmail(String test) {
-        return test.matches(EMAIL_VALIDATION_REGEX);
+        Boolean check = true;
+        if(test.contains("/*") || test.contains(";") || test.contains("'") || test.contains("*/")) {
+            check = false;
+        }
+        return test.matches(EMAIL_VALIDATION_REGEX) && check;
     }
 
     @Override
