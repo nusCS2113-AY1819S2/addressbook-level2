@@ -37,6 +37,7 @@ What's different from AddressBook-Level1:
 * Support for storing address (`a/`) and tags (`t/`)
 * Support for marking a contact detail as 'private' (`pa/`) (`pe/`) (`pp/`)
 * View details of a person (`view` : shows non-private details), (`viewall` : shows all details)
+* View the list an updated list of people when adding someone using the AddAndListCommand
 
 == Viewing help : `help`
 
@@ -182,4 +183,11 @@ The file name must end in `.txt` for it to be acceptable to the program.
 
 When running the program inside IntelliJ, you can set command line parameters
 before running the program.
-====
+
+==== Adding And Listing in the program: 'Add and List'
+
+This gives an updated list after adding a person. +
+Format: 'AddAndList'
+
+
+
