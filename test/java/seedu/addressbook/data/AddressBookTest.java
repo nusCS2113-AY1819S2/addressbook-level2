@@ -129,6 +129,13 @@ public class AddressBookTest {
     }
 
     @Test
+    public void sort() {
+        defaultAddressBook.clear();
+
+        assertTrue(isEmpty(defaultAddressBook.getAllPersons()));
+    }
+
+    @Test
     public void getAllPersons() throws Exception {
         UniquePersonList allPersons = defaultAddressBook.getAllPersons();
         UniquePersonList personsToCheck = new UniquePersonList(aliceBetsy, bobChaplin);
