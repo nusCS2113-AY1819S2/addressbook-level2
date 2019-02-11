@@ -159,7 +159,7 @@ Format: `clear`
 == Saying hi : `hello`
 
 The program greets you back. +
-Format: `clear`
+Format: `hello`
 
 == Exiting the program : `exit`
 
