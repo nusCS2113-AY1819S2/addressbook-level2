@@ -47,6 +47,10 @@ Format: `help`
 Help is also shown if you enter an incorrect command e.g. `abcd`
 ====
 
+== Display "Hello!" : `hello`
+
+Format: `hello`
+
 == Adding a person: `add`
 
 Adds a person to the address book. +
