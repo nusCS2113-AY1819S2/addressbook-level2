@@ -29,6 +29,8 @@
 || Example: help
 || exit: Exits the program.
 || Example: exit
+|| Says hi back to you.
+|| Example: hello
 || ===================================================
 || Enter command: || [Command entered:  delete 1]
 || The person index provided is invalid
@@ -296,6 +298,9 @@
 || Enter command: || [Command entered:  list]
 || 
 || 0 persons listed!
+|| ===================================================
+|| Enter command: || [Command entered:  hello]
+|| Hello!!
 || ===================================================
 || Enter command: || [Command entered:  exit]
 || Exiting Address Book as requested ...
