@@ -153,7 +153,10 @@ Views all details of the 1st person in the results of the `find` command.
 
 == Clearing all entries : `clear`
 
+Warning message for clearing all data
+Key in "YES" to continue
 Clears all entries from the address book. +
+Any key to exit clear function
 Format: `clear`
 
 == Exiting the program : `exit`
