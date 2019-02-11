@@ -111,6 +111,19 @@ Deletes the 2nd person in the address book.
 `delete 1` +
 Deletes the 1st person in the results of the `find` command.
 
+== Pseudo Sorting : `dummysort`
+
+Psuedo sorts the address book in alphabetical order (mimics how a sort would be implemented by laying out the skeletal structure as well as pinpoint the files within the project to be updated.)
+Format: `dummysort`
+
+****
+Supposedly takes all the entries of the address book and sorts the names in alphabetical order.
+****
+
+Examples:
+
+* `dummysort` +
+
 == View non-private details of a person : `view`
 
 Displays the non-private details of the specified person. +
