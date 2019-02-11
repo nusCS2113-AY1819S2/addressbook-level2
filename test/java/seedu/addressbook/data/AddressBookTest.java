@@ -129,10 +129,12 @@ public class AddressBookTest {
     }
 
     @Test
-    public void sort() {
-        defaultAddressBook.clear();
+    public void sort() throws Exception {
+        defaultAddressBook.sort();
+        UniquePersonList allPersons = defaultAddressBook.getAllPersons();
+        UniquePersonList personsToCheck = new UniquePersonList(aliceBetsy, bobChaplin);
 
-        assertTrue(isEmpty(defaultAddressBook.getAllPersons()));
+        assertTrue(isIdentical(allPersons, personsToCheck));
     }
 
     @Test
