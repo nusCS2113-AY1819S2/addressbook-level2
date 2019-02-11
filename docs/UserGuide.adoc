@@ -151,6 +151,52 @@ Views all details of the 2nd person in the address book.
 `viewall 1` +
 Views all details of the 1st person in the results of the `find` command.
 
+== Sorting all entries : `sort`
+Sorts all entries in the address book by names using case-sensitive lexicographical order. +
+Format: `sort`
+
+[NOTE]
+====
+The sort treats all names as case-sensitive.
+
+The lexicographical order used to sort the names is as follows:
+
+. Each character has a rank associated to it
+  .. All uppercase letters preceed all lowercase letters
+  .. Within uppercase letters, alphabetical order is used +
+     E.g. `A` is ranked before `Z`
+  .. Within lowercase letters, alphabetical order is used +
+     E.g. `a` is ranked before `z`
+  .. Spaces preceed all alphabets +
+     E.g. ' ' is ranked before `A` and `a`
+. Compare the corresponding characters of two names from left to right. +
+  The first character to differ determines the rank of the names. +
+  Examples:
+  .. `John` is ranked before `john` (`J` preceeds `j`)
+  .. `StudentAlexTan` is ranked before `StudentAlexandra` (`T` preceeds `a`)
+  .. `Student Alex Tan` is ranked before `Student AlexTan` (' ' preceeds `T`)
+====
+
+Example: +
+
+* `list` +
+```
+1. john
+2. John
+3. StudentAlexandra
+4. StudentAlexTan
+```
+
+* `sort` +
+  `list` +
+```
+  1. John
+  2. StudentAlexTan
+  3. StudentAlexandra
+  4. john
+```
+Entries in the address book are now re-ordered based on names using case-sensitive lexicographical order.
+
 == Clearing all entries : `clear`
 
 Clears all entries from the address book. +
