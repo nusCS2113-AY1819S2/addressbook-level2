@@ -6,6 +6,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Comparator;
 
 import seedu.addressbook.common.Utils;
 import seedu.addressbook.data.exception.DuplicateDataException;
@@ -97,6 +98,18 @@ public class UniquePersonList implements Iterable<Person> {
     }
 
     /**
+     * Sorts persons in address book alphabetically.
+     */
+    private void sortPersonsInAddressBook(){
+        Collections.sort(internalList, new Comparator<Person>(){
+            @Override
+            public int compare(Person o1, Person o2) {
+                return o1.getName().fullName.compareTo(o2.getName().fullName);
+            }
+        });
+    }
+
+    /**
      * Adds a person to the list.
      *
      * @throws DuplicatePersonException if the person to add is a duplicate of an existing person in the list.
@@ -108,6 +121,7 @@ public class UniquePersonList implements Iterable<Person> {
             throw new DuplicatePersonException();
         }
         internalList.add(toAdd);
+        sortPersonsInAddressBook();
     }
 
     /**
