@@ -72,4 +72,9 @@ public class AddCommand extends Command {
         }
     }
 
+    public static void get(){
+
+
+    }
+
 }
