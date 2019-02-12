@@ -156,6 +156,13 @@ Views all details of the 1st person in the results of the `find` command.
 Clears all entries from the address book. +
 Format: `clear`
 
+== Prints out current date and time : `clock`
+Format: `clock`
+
+Example:
+
+* Date & Time now: `DAY`, `DD-MM-YYYY` at `HH:MM:SS` `AM/PM` `SGT`
+
 == Exiting the program : `exit`
 
 Exits the program. +
